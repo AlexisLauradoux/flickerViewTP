@@ -1,21 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
+import filmReducer from './film'
 
-export const filmSlice = createSlice({
-  name: 'film',
-  initialState: {
-    value: [
-        'Tarzan',
-        '5 élements',
-        'Cortex les pyramides'
-],
-  },
-  reducers: {
-    addFilm: (state, action) => {
-      state.value =[...state.value, action.payload];
-    },
-  },
-});
-
-export const {  addFilm } = filmSlice.actions;
-
-export default filmSlice.reducer;
+export default configureStore({
+  reducer: {
+    film: filmReducer
+  }
+})
